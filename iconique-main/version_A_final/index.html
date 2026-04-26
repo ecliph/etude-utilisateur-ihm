@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Focus Planner - Prototype A</title>
+    <title>Focus Planner - Prototype A (Étude Utilisateur)</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="data.js"></script>
   </head>
   <body>
     <aside class="sidebar">
@@ -16,10 +17,16 @@
       >
         Liste des tâches
       </button>
+      <button class="nav-btn" id="btn-board" onclick="showView('task-board')">
+        Taskboard (Projet)
+      </button>
       <button class="nav-btn" id="btn-cal" onclick="showView('calendar-view')">
         Calendrier Journalier
       </button>
       <hr />
+      <button class="nav-btn" style="background:#ef4444; color:white; margin-top:20px;" onclick="document.getElementById('user-test-panel').style.display='block'">
+        🔬 Mode Test Utilisateur
+      </button>
       <br />
       <div id="category-filter">
         <p><strong>Filtrer par catégorie :</strong></p>
@@ -66,7 +73,6 @@
         </div>
         <div id="list-container"></div>
       </div>
-
       <div id="calendar-view" class="view">
         <div class="calendar-header">
           <h1>Planning du jour</h1>
@@ -74,7 +80,58 @@
         </div>
         <div class="calendar-container" id="calendar-grid"></div>
       </div>
+
+      <div id="task-board" class="view">
+        <h1>Taskboard - Projet de groupe</h1>
+        <div class="board-columns">
+          <div class="board-column" id="col-todo">
+            <h3>À faire</h3>
+            <div class="col-content"></div>
+          </div>
+          <div class="board-column" id="col-inprog">
+            <h3>En cours</h3>
+            <div class="col-content"></div>
+          </div>
+          <div class="board-column" id="col-done">
+            <h3>Terminé</h3>
+            <div class="col-content"></div>
+          </div>
+        </div>
+      </div>
+
     </main>
+
+    <!-- Panneau Test Utilisateur -->
+    <div id="user-test-panel" style="display:none;" class="test-panel">
+      <div class="test-panel-header">
+        <h3>🔬 Étude Utilisateur</h3>
+        <button onclick="document.getElementById('user-test-panel').style.display='none'">X</button>
+      </div>
+      <div class="test-panel-body">
+        <label>Participant ID:</label>
+        <input type="text" id="test-participant" placeholder="Ex: P01">
+        <label>Scénario:</label>
+        <select id="test-scenario">
+          <option value="Scenario 1">Scénario 1 (Création & Calendrier)</option>
+          <option value="Scenario 2">Scénario 2 (Taskboard & Focus)</option>
+        </select>
+        <button class="btn" style="width:100%" onclick="startTest()">Démarrer Test</button>
+        
+        <div id="test-active-view" style="display:none; margin-top:15px; border-top:1px solid #ccc; padding-top:15px;">
+            <p><strong>Chronomètre:</strong> <span id="test-timer">00:00</span></p>
+            <p><strong>Clics:</strong> <span id="test-clicks">0</span></p>
+            <button class="btn" onclick="addTestStep()">✔️ Marquer étape réussie</button>
+            <button class="btn" style="background:#f59e0b" onclick="addTestError()">⚠️ Ajouter erreur</button>
+            <textarea id="test-comment" placeholder="Commentaire observateur..."></textarea>
+            <button class="btn" style="background:#ef4444" onclick="endTest(true)">🏁 Terminer (Succès)</button>
+            <button class="btn" style="background:#475569" onclick="endTest(false)">❌ Terminer (Échec)</button>
+        </div>
+        <div style="margin-top:20px; font-size:0.8rem; color:#666;">
+          <p>Scénario 1 : Créer tâche > Calendrier > Modifier durée.</p>
+          <p>Scénario 2 : Taskboard > t1 générer sous-tâches > t2 ajouter prépa > t1 mode focus (simulé).</p>
+        </div>
+      </div>
+    </div>
 
     <div id="focus-overlay">
       <div id="focus-curtain"></div>
@@ -82,12 +139,15 @@
       <div id="focus-content">
         <h2 id="focus-task-title">Tâche en cours</h2>
         <div id="timer-display">00:00</div>
+        
+        <label style="color:white; display:block; margin: 10px 0;"><input type="checkbox" id="simModeCheckbox"> Mode Simulation (30 min => 30 sec)</label>
+
         <button
           class="btn"
           onclick="closeFocus()"
           style="z-index: 1001; position: relative"
         >
-          Quitter le Focus
+          Valider et Terminer
         </button>
       </div>
     </div>

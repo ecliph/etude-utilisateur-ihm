@@ -1,5 +1,14 @@
 // --- INITIALISATION ET ETAT DE L'APPLICATION ---
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let tasks = JSON.parse(localStorage.getItem("tasks"));
+if (!tasks || tasks.length === 0) {
+  if (typeof DEFAULT_TASKS !== 'undefined') {
+    tasks = DEFAULT_TASKS;
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  } else {
+    tasks = [];
+  }
+}
+
 let activeTimer = null;
 let isDraggingCurtain = false;
 let focusInterval = null; // <-- Ajoute cette ligne
@@ -45,7 +54,7 @@ function updateCategoryUI() {
   const currentFilter = filter.value;
 
   // 1. Définir tes catégories par défaut ici
-  const defaultCats = ["Travail", "Personnel", "Études", "Loisirs"];
+  const defaultCats = typeof DEFAULT_CATEGORIES !== 'undefined' ? DEFAULT_CATEGORIES : ["Travail", "Personnel", "Études", "Loisirs"];
 
   // 2. Récupérer les catégories créées par l'utilisateur dans ses tâches
   const userCats = [...new Set(tasks.map((t) => t.category))];
@@ -321,10 +330,18 @@ function startFocus(id) {
 
   focusInterval = setInterval(() => {
     if (!isDraggingCurtain && activeTimer) {
-      activeTimer.remainingSeconds--;
+      const simMode = document.getElementById("simModeCheckbox") && document.getElementById("simModeCheckbox").checked;
+      const decrement = simMode ? 60 : 1; // 60x faster si coché
+      
+      activeTimer.remainingSeconds -= decrement;
+      if (activeTimer.remainingSeconds <= 0) {
+         activeTimer.remainingSeconds = 0;
+      }
+      
       updateFocusUI();
       if (activeTimer.remainingSeconds <= 0) {
         closeFocus();
+        alert("✅ Focus terminé ! Prenez une pause.");
       }
     }
   }, 1000);
@@ -548,9 +565,163 @@ function saveAndRender() {
 function renderAll() {
   renderList();
   renderCalendar();
+  if(typeof renderTaskboard === "function") renderTaskboard();
 }
 
 // Initialisation
 document.getElementById("task-date").valueAsDate = new Date();
 document.getElementById("calendar-date-picker").valueAsDate = new Date();
 saveAndRender();
+
+// --- SCÉNARIO 2: TASKBOARD ---
+function renderTaskboard() {
+  ["col-todo", "col-inprog", "col-done"].forEach(id => {
+    const el = document.querySelector(`#${id} .col-content`);
+    if(el) el.innerHTML = "";
+  });
+
+  tasks.forEach(t => {
+    const colId = t.status === "done" ? "col-done" : (t.status === "inprog" ? "col-inprog" : "col-todo");
+    const container = document.querySelector(`#${colId} .col-content`);
+    if(!container) return;
+
+    let extraActions = "";
+    if(t.id === "t1") {
+      extraActions = `<button class="btn" style="padding:5px; font-size:0.8rem; margin-top:5px; width:100%" onclick="generateSubtasks('${t.id}'); event.stopPropagation()">Générer les sous-tâches</button>
+                      <button class="btn" style="background:#10B981; padding:5px; font-size:0.8rem; margin-top:5px; width:100%" onclick="startFocus('${t.id}'); event.stopPropagation()">Lancer le mode focus</button>`;
+    }
+    if(t.id === "t2") {
+      extraActions = `<button class="btn" style="padding:5px; font-size:0.8rem; margin-top:5px; width:100%; background:#f59e0b" onclick="addPrepTime('t2'); event.stopPropagation()">Ajouter un temps de préparation</button>`;
+    }
+
+    let subtasksHTML = "";
+    if (t.subtasks && t.subtasks.length > 0) {
+        subtasksHTML = "<ul style='margin-left: 15px; font-size: 0.8rem; color: #555; margin-top: 5px; margin-bottom: 5px'>";
+        t.subtasks.forEach(st => subtasksHTML += `<li>${st.text}</li>`);
+        subtasksHTML += "</ul>";
+    }
+
+    container.innerHTML += `
+      <div class="board-task" onclick="alert('Sélection de la tâche: ${t.title}');">
+        <strong>${t.title}</strong><br>
+        <span style="font-size:0.8rem; color:#666">${t.duration} min | ${t.category}</span>
+        ${subtasksHTML}
+        ${extraActions}
+      </div>
+    `;
+  });
+}
+
+function addPrepTime(targetId) {
+  const targetTask = tasks.find(t => t.id === targetId);
+  if(!targetTask) return;
+  const prepTask = {
+    id: "t3",
+    title: "Préparation : " + targetTask.title,
+    desc: "Temps de préparation",
+    date: targetTask.date,
+    start: "13:30",
+    duration: 30,
+    category: targetTask.category,
+    completed: false,
+    status: "todo",
+    subtasks: []
+  };
+  tasks.push(prepTask);
+  saveAndRender();
+  alert("Tâche de préparation (t3) ajoutée avec succès !");
+}
+
+
+// --- INSTRUMENTATION ETUDE UTILISATEUR ---
+let currentTest = null;
+let testTimerInterval = null;
+
+function startTest() {
+  const pid = document.getElementById("test-participant").value || "P_Inconnu";
+  const scen = document.getElementById("test-scenario").value;
+  
+  currentTest = {
+    participantId: pid,
+    scenario: scen,
+    startTime: new Date().toISOString(),
+    endTime: null,
+    durationSeconds: 0,
+    completedSteps: [],
+    errors: [],
+    clickCount: 0,
+    success: false,
+    observerComment: ""
+  };
+  
+  document.getElementById("test-clicks").innerText = "0";
+  document.getElementById("test-active-view").style.display = "block";
+  
+  if(testTimerInterval) clearInterval(testTimerInterval);
+  let sec = 0;
+  testTimerInterval = setInterval(() => {
+    sec++;
+    currentTest.durationSeconds = sec;
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    document.getElementById("test-timer").innerText = `${m}:${String(s).padStart(2, "0")}`;
+  }, 1000);
+  
+  // Clean start, efface localStorage pour un environnement de test pur
+  localStorage.removeItem("tasks");
+  tasks = typeof DEFAULT_TASKS !== 'undefined' ? JSON.parse(JSON.stringify(DEFAULT_TASKS)) : [];
+  saveAndRender();
+  alert("Test Utilisateur démarré ! Données réinitialisées.");
+}
+
+document.addEventListener("click", () => {
+  if (currentTest) {
+    currentTest.clickCount++;
+    document.getElementById("test-clicks").innerText = currentTest.clickCount;
+  }
+});
+
+function addTestStep() {
+  if(!currentTest) {
+     alert("Veuillez démarrer un test utilisateur d'abord.");
+     return;
+  }
+  const stepLabel = prompt("Nom de l'étape validée :");
+  if(stepLabel) {
+    currentTest.completedSteps.push(stepLabel);
+    alert("Étape validée : " + stepLabel);
+  }
+}
+
+function addTestError() {
+  if(!currentTest) {
+     alert("Veuillez démarrer un test utilisateur d'abord.");
+     return;
+  }
+  const err = prompt("Description de l'erreur / hésitation :");
+  if(err) {
+    currentTest.errors.push(err);
+    alert("Problème consigné.");
+  }
+}
+
+function endTest(success) {
+  if(!currentTest) return;
+  clearInterval(testTimerInterval);
+  currentTest.endTime = new Date().toISOString();
+  currentTest.success = success;
+  currentTest.observerComment = document.getElementById("test-comment").value;
+  
+  const jsonStr = JSON.stringify(currentTest, null, 2);
+  
+  const blob = new Blob([jsonStr], {type: "application/json"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `Resultats_${currentTest.participantId}_${currentTest.scenario.replace(/ /g, '_')}.json`;
+  a.click();
+  
+  alert("Test terminé. Les résultats CSV / JSON ont été sauvegardés.");
+  document.getElementById("test-active-view").style.display = "none";
+  currentTest = null;
+}
