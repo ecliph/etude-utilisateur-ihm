@@ -14,14 +14,14 @@ let isDraggingCurtain = false;
 let focusInterval = null; // <-- Ajoute cette ligne
 let openBufferTaskId = null;
 const suggestedSubtasks = [
-  "Faire semblant de travailler",
-  "Procrastiner",
-  "Compter les nuages",
-  "Paniquer à propos de la date limite",
-  "Faire une pause",
-  "Essayer de toucher son nez avec sa langue"
+  "Relire les objectifs du projet",
+  "Répartir les parties entre les membres",
+  "Préparer le plan de la présentation",
+  "Créer les diapositives",
+  "Vérifier les exemples et captures d'écran",
+  "Répéter la présentation",
+  "Préparer les réponses aux questions possibles"
 ];
-
 
 // --- NAVIGATION ---
 function showView(viewId) {
@@ -36,7 +36,10 @@ function showView(viewId) {
   // Gestion du style des boutons de la sidebar
   if (viewId === "task-list")
     document.getElementById("btn-list").classList.add("active");
-  else document.getElementById("btn-cal").classList.add("active");
+  else if (viewId === "task-board")
+    document.getElementById("btn-board").classList.add("active");
+  else if (viewId === "calendar-view")
+    document.getElementById("btn-cal").classList.add("active");
 
   renderAll();
 }
@@ -615,6 +618,13 @@ function renderTaskboard() {
 function addPrepTime(targetId) {
   const targetTask = tasks.find(t => t.id === targetId);
   if(!targetTask) return;
+  
+  const existingPrep = tasks.find(t => t.id === "t3");
+  if(existingPrep) {
+    alert("Le temps de préparation existe déjà pour cette tâche.");
+    return;
+  }
+  
   const prepTask = {
     id: "t3",
     title: "Préparation : " + targetTask.title,
@@ -714,14 +724,27 @@ function endTest(success) {
   
   const jsonStr = JSON.stringify(currentTest, null, 2);
   
-  const blob = new Blob([jsonStr], {type: "application/json"});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = `Resultats_${currentTest.participantId}_${currentTest.scenario.replace(/ /g, '_')}.json`;
-  a.click();
+  // Export CSV
+  let csvStr = "Participant,Scenario,StartTime,EndTime,DurationSeconds,Success,Clicks,Errors,CompletedSteps,Comment\n";
+  csvStr += `"${currentTest.participantId}","${currentTest.scenario}","${currentTest.startTime}","${currentTest.endTime}",`;
+  csvStr += `${currentTest.durationSeconds},${currentTest.success},${currentTest.clickCount},`;
+  csvStr += `"${currentTest.errors.join("; ")}","${currentTest.completedSteps.join("; ")}","${currentTest.observerComment.replace(/"/g, '""')}"`;
+
+  const blobJson = new Blob([jsonStr], {type: "application/json"});
+  const urlJson = URL.createObjectURL(blobJson);
+  const aJson = document.createElement("a");
+  aJson.href = urlJson;
+  aJson.download = `Resultats_${currentTest.participantId}_${currentTest.scenario.replace(/ /g, '_')}.json`;
+  aJson.click();
   
-  alert("Test terminé. Les résultats CSV / JSON ont été sauvegardés.");
+  const blobCsv = new Blob([csvStr], {type: "text/csv;charset=utf-8;"});
+  const urlCsv = URL.createObjectURL(blobCsv);
+  const aCsv = document.createElement("a");
+  aCsv.href = urlCsv;
+  aCsv.download = `Resultats_${currentTest.participantId}_${currentTest.scenario.replace(/ /g, '_')}.csv`;
+  aCsv.click();
+  
+  alert("Test terminé. Les résultats CSV et JSON ont été sauvegardés.");
   document.getElementById("test-active-view").style.display = "none";
   currentTest = null;
 }
