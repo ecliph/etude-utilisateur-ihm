@@ -1,0 +1,29 @@
+{
+    "scenario": [
+        "Affichage du taskboard du projet",
+        "Sélection de la tâche t1 avec génération automatique des sous-tâches",
+        "Sélection de la tâche t2 avec ajout d'un temps de préparation t3",
+        "Retour à la tâche t1 et lancement du mode focus",
+        "Affichage de la fin du focus mode et retour à l'écran d'accueil"
+    ],
+    "t1": {
+        "nom": "Apprendre à parler avec les corbeaux",
+        "durée": "60 minutes",
+        "sous-tâches générées": [
+            "Paniquer à propos de la date limite",
+            "Faire une pause",
+            "Essayer de toucher son nez avec sa langue"
+        ],
+        "sous-tâche ajoutée manuellement": "Créer un dictionnaire"
+    },
+    "t2": {
+        "nom": "Imiter des bruits de dinosaures",
+        "durée": "40 minutes",
+        "temps de préparation": "15 minutes"
+    },
+    "focus": {
+        "tâche lancée": "t1 - Apprendre à parler avec les corbeaux",
+        "affichage du temps": "proportionnel à 60 minutes",
+        "fin": "quitter le mode focus puis retour à l'accueil"
+    }
+}

@@ -1,0 +1,537 @@
+[
+    {
+        "Objectif": "Biscuits amaretti",
+        "Steps": [
+            {
+                "Step": "Ingrédients des Biscuits Amaretti",
+                "Tasks": [
+                    {
+                        "Task": "280 g d’amandes mondées",
+                        "Durée": "70",
+                        "Heure": "8",
+                        "Minutes": "10"
+                    },
+                    {
+                        "Task": "230 g de sucre",
+                        "Durée": "60",
+                        "Heure": "7",
+                        "Minutes": "0"
+                    },
+                    {
+                        "Task": "20 g de sucre glace",
+                        "Durée": "130",
+                        "Heure": "20",
+                        "Minutes": "30"
+                    },
+                    {
+                        "Task": "3 blancs d’oeufs",
+                        "Durée": "110",
+                        "Heure": "7",
+                        "Minutes": "50"
+                    }
+                ]
+            },
+            {
+                "Step": "Faire des Biscuits Amaretti",
+                "Tasks": [
+                    {
+                        "Task": "Mixer les amandes. ",
+                        "Durée": "50",
+                        "Heure": "19",
+                        "Minutes": "0"
+                    },
+                    {
+                        "Task": "Mélanger avec le sucre.",
+                        "Durée": "20",
+                        "Heure": "19",
+                        "Minutes": "10"
+                    },
+                    {
+                        "Task": "Monter les blancs en neige",
+                        "Durée": "80",
+                        "Heure": "9",
+                        "Minutes": "40"
+                    },
+                    {
+                        "Task": "Incorporer la pâte d’amandes avec les blancs en neige",
+                        "Durée": "110",
+                        "Heure": "19",
+                        "Minutes": "20"
+                    },
+                    {
+                        "Task": "Faire des petits tas de pâte de la taille d’une noix sur une plaque recouverte de papier sulfurisé, en les espaçant bien.",
+                        "Durée": "100",
+                        "Heure": "19",
+                        "Minutes": "10"
+                    },
+                    {
+                        "Task": "Faire cuire au four 12 à 13 minutes : les amaretti seront moelleux et légèrement dorés.",
+                        "Durée": "40",
+                        "Heure": "10",
+                        "Minutes": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "Objectif": "Baguettes",
+        "Steps": [
+            {
+                "Step": "Pétrissage",
+                "Tasks": [
+                    {
+                        "Task": "Mélanger l’eau, la farine et le sel",
+                        "Durée": "50",
+                        "Heure": "13",
+                        "Minutes": "40"
+                    },
+                    {
+                        "Task": "Pétrir environ 5 minutes",
+                        "Durée": "80",
+                        "Heure": "16",
+                        "Minutes": "20"
+                    },
+                    {
+                        "Task": "Ajouter la levure boulangère émiettée",
+                        "Durée": "180",
+                        "Heure": "19",
+                        "Minutes": "40"
+                    },
+                    {
+                        "Task": "Pétrir environ 10 minutes jusqu’à l’obtention d’une pâte homogène, lisse et non collante.",
+                        "Durée": "60",
+                        "Heure": "20",
+                        "Minutes": "50"
+                    },
+                    {
+                        "Task": "Mettre la pâte dans un bol recouvert d’un linge humide",
+                        "Durée": "130",
+                        "Heure": "16",
+                        "Minutes": "0"
+                    },
+                    {
+                        "Task": "Laisser lever la pâte 30 minutes minimum à température ambiante",
+                        "Durée": "70",
+                        "Heure": "17",
+                        "Minutes": "50"
+                    },
+                    {
+                        "Task": "Fariner le plan de travail et placer la pâte sur le plan de travail en l’aplatissant légèrement",
+                        "Durée": "90",
+                        "Heure": "13",
+                        "Minutes": "30"
+                    }
+                ]
+            },
+            {
+                "Step": "Pousse",
+                "Tasks": [
+                    {
+                        "Task": "Ramener les quatre coins vers le milieu",
+                        "Durée": "150",
+                        "Heure": "16",
+                        "Minutes": "0"
+                    },
+                    {
+                        "Task": "Remettre la pâte dans le bol et laisser lever 20 minutes environ",
+                        "Durée": "100",
+                        "Heure": "10",
+                        "Minutes": "30"
+                    },
+                    {
+                        "Task": "Aplatir à nouveau la pâte",
+                        "Durée": "140",
+                        "Heure": "9",
+                        "Minutes": "20"
+                    },
+                    {
+                        "Task": "Ramener les quatre coins au milieu pour former une boule",
+                        "Durée": "90",
+                        "Heure": "13",
+                        "Minutes": "0"
+                    },
+                    {
+                        "Task": "Laisser la pâte lever 2 heures à température ambiante (la pâte doit doubler de volume, prévoir de l’espace autour)",
+                        "Durée": "90",
+                        "Heure": "13",
+                        "Minutes": "20"
+                    },
+                    {
+                        "Task": "Déposer la pâte sur le plan de travail fariné",
+                        "Durée": "140",
+                        "Heure": "16",
+                        "Minutes": "40"
+                    },
+                    {
+                        "Task": "Faire 6 morceaux de même taille et les mettre en boules.",
+                        "Durée": "70",
+                        "Heure": "20",
+                        "Minutes": "10"
+                    },
+                    {
+                        "Task": "Recouvrir d’un linge propre",
+                        "Durée": "160",
+                        "Heure": "9",
+                        "Minutes": "0"
+                    },
+                    {
+                        "Task": "Laisser reposer 10 minutes",
+                        "Durée": "40",
+                        "Heure": "12",
+                        "Minutes": "0"
+                    }
+                ]
+            },
+            {
+                "Step": "Le façonnage",
+                "Tasks": [
+                    {
+                        "Task": "Prendre l’un des pâtons, l’aplatir doucement en forme ovale, replier les coins vers le milieu",
+                        "Durée": "160",
+                        "Heure": "18",
+                        "Minutes": "0"
+                    },
+                    {
+                        "Task": "Rouler chaque pâton sur le plan de travail jusqu’à ce qu’il prenne la forme d’une baguette",
+                        "Durée": "30",
+                        "Heure": "13",
+                        "Minutes": "10"
+                    },
+                    {
+                        "Task": "Déposer les baquette sur un plateau",
+                        "Durée": "140",
+                        "Heure": "10",
+                        "Minutes": "50"
+                    },
+                    {
+                        "Task": "Laisser reposer une demi-heure à température ambiante",
+                        "Durée": "90",
+                        "Heure": "15",
+                        "Minutes": "0"
+                    },
+                    {
+                        "Task": "A l’aide d’un couteau, entailler les baguette avec deux ou troi incisions dans le sens de la longueur",
+                        "Durée": "70",
+                        "Heure": "20",
+                        "Minutes": "40"
+                    }
+                ]
+            },
+            {
+                "Step": "Cuisson",
+                "Tasks": [
+                    {
+                        "Task": "Préchauffer le four 10 minutes environ",
+                        "Durée": "80",
+                        "Heure": "6",
+                        "Minutes": "0"
+                    },
+                    {
+                        "Task": "Enfourner les baguettes pour 15 minutes en surveillant la cuisson",
+                        "Durée": "60",
+                        "Heure": "12",
+                        "Minutes": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "Objectif": "Salade de printemps",
+        "Steps": [
+            {
+                "Step": "Ingrédients pour la salade de printemps",
+                "Tasks": [
+                    {
+                        "Task": "2 grosses pdts",
+                        "Durée": "140",
+                        "Heure": "20",
+                        "Minutes": "50"
+                    },
+                    {
+                        "Task": "1 petite aubergine",
+                        "Durée": "110",
+                        "Heure": "16",
+                        "Minutes": "40"
+                    },
+                    {
+                        "Task": "200 g d’épinards",
+                        "Durée": "100",
+                        "Heure": "19",
+                        "Minutes": "20"
+                    },
+                    {
+                        "Task": "1 verre de blé précuit",
+                        "Durée": "100",
+                        "Heure": "15",
+                        "Minutes": "40"
+                    },
+                    {
+                        "Task": "100 g de Yaourt grec",
+                        "Durée": "160",
+                        "Heure": "16",
+                        "Minutes": "50"
+                    },
+                    {
+                        "Task": "3 c. à s. d’huile d’olive",
+                        "Durée": "110",
+                        "Heure": "20",
+                        "Minutes": "30"
+                    },
+                    {
+                        "Task": "2 c. à s. de paprika fumé",
+                        "Durée": "30",
+                        "Heure": "7",
+                        "Minutes": "50"
+                    },
+                    {
+                        "Task": "1 gousse d’ail",
+                        "Durée": "150",
+                        "Heure": "14",
+                        "Minutes": "30"
+                    },
+                    {
+                        "Task": "Sel, poivre",
+                        "Durée": "120",
+                        "Heure": "20",
+                        "Minutes": "10"
+                    },
+                    {
+                        "Task": "Persil",
+                        "Durée": "70",
+                        "Heure": "6",
+                        "Minutes": "20"
+                    }
+                ]
+            },
+            {
+                "Step": "Faire une salade de printemps",
+                "Tasks": [
+                    {
+                        "Task": "Couper les pommes de terre et l’aubergine en morceaux.",
+                        "Durée": "20",
+                        "Heure": "19",
+                        "Minutes": "50"
+                    },
+                    {
+                        "Task": "Placer-les sur une plaque, au four à 200°C, pour 20 à 30 minutes, avec 2 c. à s. d’huile, le paprika, du sel et du poivre.",
+                        "Durée": "170",
+                        "Heure": "6",
+                        "Minutes": "30"
+                    },
+                    {
+                        "Task": "Pendant ce temps, faites cuire le blé et réservez.",
+                        "Durée": "10",
+                        "Heure": "13",
+                        "Minutes": "30"
+                    },
+                    {
+                        "Task": "Faites dorer l’ail 1 mn dans le reste d’huile et ajoutez les épinards. Faites revenir 2 à 3 minutes. Retirez du feu, salez et poivrez.",
+                        "Durée": "100",
+                        "Heure": "20",
+                        "Minutes": "40"
+                    },
+                    {
+                        "Task": "Au moment de servir répartissez le blé, les épinards, les pommes de terre et l’aubergine dans chaque bol et ajoutez le yaourt et le persil ciselé.",
+                        "Durée": "40",
+                        "Heure": "9",
+                        "Minutes": "40"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "Objectif": "Salade de poulet tandoori",
+        "Steps": [
+            {
+                "Step": "Ingrédients pour le poulet tandoori",
+                "Tasks": [
+                    {
+                        "Task": "2 escalopes de poulet",
+                        "Durée": "170",
+                        "Heure": "9",
+                        "Minutes": "10"
+                    },
+                    {
+                        "Task": "120 g de riz basmati",
+                        "Durée": "120",
+                        "Heure": "6",
+                        "Minutes": "10"
+                    },
+                    {
+                        "Task": "2 yaourts grecs",
+                        "Durée": "150",
+                        "Heure": "18",
+                        "Minutes": "30"
+                    },
+                    {
+                        "Task": "3 c. à s. d’huile d’olive",
+                        "Durée": "150",
+                        "Heure": "19",
+                        "Minutes": "40"
+                    },
+                    {
+                        "Task": "1 c. à s. d’épice tandoori",
+                        "Durée": "130",
+                        "Heure": "12",
+                        "Minutes": "50"
+                    },
+                    {
+                        "Task": "1 citron vert",
+                        "Durée": "130",
+                        "Heure": "13",
+                        "Minutes": "0"
+                    },
+                    {
+                        "Task": "Sel, poivre",
+                        "Durée": "40",
+                        "Heure": "20",
+                        "Minutes": "10"
+                    },
+                    {
+                        "Task": "Coriandre ciselée",
+                        "Durée": "150",
+                        "Heure": "16",
+                        "Minutes": "30"
+                    }
+                ]
+            },
+            {
+                "Step": "Faire un poulet tandoori",
+                "Tasks": [
+                    {
+                        "Task": "Dans un bol, faites mariner le poulet avec 1 yaourt, de l’huile, sel, poivre épices tandoori. Couvrez et réservez au frais durant au moins 30 minutes",
+                        "Durée": "110",
+                        "Heure": "17",
+                        "Minutes": "50"
+                    },
+                    {
+                        "Task": "Déposer les cubes de poulet avec la marinade dans un plat à four, puis enfournez 15 minutes à 200°C",
+                        "Durée": "170",
+                        "Heure": "11",
+                        "Minutes": "40"
+                    },
+                    {
+                        "Task": "Pendant ce temps, faites cuire le riz 10 minutes, égouttez.",
+                        "Durée": "120",
+                        "Heure": "6",
+                        "Minutes": "50"
+                    },
+                    {
+                        "Task": "Mélangez le dernier yaourt avec de l’huile le jus de citron vert, du sel, du poivre.",
+                        "Durée": "120",
+                        "Heure": "12",
+                        "Minutes": "0"
+                    },
+                    {
+                        "Task": "Au moment de servir, disposez harmonieusement les ingrédients dans le bol, parsemez de coriandre ciselée et savourez.",
+                        "Durée": "120",
+                        "Heure": "17",
+                        "Minutes": "40"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "Objectif": "Salade de Cabillaud",
+        "Steps": [
+            {
+                "Step": "Ingrédients pour une salade de Cabillaud pour 4 personnes",
+                "Tasks": [
+                    {
+                        "Task": "800 g de dos de cabillaud",
+                        "Durée": "100",
+                        "Heure": "15",
+                        "Minutes": "0"
+                    },
+                    {
+                        "Task": "240 g de semoule",
+                        "Durée": "70",
+                        "Heure": "19",
+                        "Minutes": "50"
+                    },
+                    {
+                        "Task": "1 grenade",
+                        "Durée": "40",
+                        "Heure": "19",
+                        "Minutes": "50"
+                    },
+                    {
+                        "Task": "1 yaourt grec",
+                        "Durée": "150",
+                        "Heure": "20",
+                        "Minutes": "50"
+                    },
+                    {
+                        "Task": "1 oeuf",
+                        "Durée": "100",
+                        "Heure": "14",
+                        "Minutes": "30"
+                    },
+                    {
+                        "Task": "huile d’olive",
+                        "Durée": "90",
+                        "Heure": "12",
+                        "Minutes": "30"
+                    },
+                    {
+                        "Task": "1 citron",
+                        "Durée": "130",
+                        "Heure": "14",
+                        "Minutes": "40"
+                    },
+                    {
+                        "Task": "Sel, poivre",
+                        "Durée": "140",
+                        "Heure": "9",
+                        "Minutes": "0"
+                    },
+                    {
+                        "Task": "Coriandre, Aneth",
+                        "Durée": "170",
+                        "Heure": "7",
+                        "Minutes": "30"
+                    }
+                ]
+            },
+            {
+                "Step": "Faire une salade de Cabillaud",
+                "Tasks": [
+                    {
+                        "Task": "Mixer les herbes avec le poisson en réservant quelques herbes pour la sauce. Ajouter l’œuf, salez, poivrez puis mélangez. Formez avec les mains des boulettes de la taille d’une balle de ping-pong. Attention, ne pas essayer de jouer au ping-pong, les boulettes ne sont pas censées rebondir.",
+                        "Durée": "70",
+                        "Heure": "12",
+                        "Minutes": "50"
+                    },
+                    {
+                        "Task": "Faites cuire la semoule selon les indications du paquet.",
+                        "Durée": "180",
+                        "Heure": "7",
+                        "Minutes": "30"
+                    },
+                    {
+                        "Task": "Mélangez le yaourt avec de l’huile le jus de citron vert, du sel, du poivre et les herbes restantes (en gardant un peu de coriandre pour la décoration).",
+                        "Durée": "80",
+                        "Heure": "20",
+                        "Minutes": "50"
+                    },
+                    {
+                        "Task": "Dans une poële, faites dorer les boulettes, 5 minutes de chaque côté",
+                        "Durée": "10",
+                        "Heure": "14",
+                        "Minutes": "30"
+                    },
+                    {
+                        "Task": "Au moment de servir, disposez harmonieusement les ingrédients dans le bol, parsemez de coriandre ciselée et savourez.",
+                        "Durée": "180",
+                        "Heure": "15",
+                        "Minutes": "30"
+                    }
+                ]
+            }
+        ]
+    }
+]

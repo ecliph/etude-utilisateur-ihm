@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Focus Planner - Prototype A</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <h2>Smart Todo</h2>
+      <button
+        class="nav-btn active"
+        id="btn-list"
+        onclick="showView('task-list')"
+      >
+        Liste des tâches
+      </button>
+      <button class="nav-btn" id="btn-cal" onclick="showView('calendar-view')">
+        Calendrier Journalier
+      </button>
+      <hr />
+      <br />
+      <div id="category-filter">
+        <p><strong>Filtrer par catégorie :</strong></p>
+        <select id="filter-cat" onchange="renderAll()">
+          <option value="all">Toutes</option>
+        </select>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div id="task-list" class="view active">
+        <h1>Mes tâches</h1>
+        <div class="card">
+          <h3>Ajouter / Modifier une tâche</h3>
+          <input type="hidden" id="task-id" />
+          <input type="text" id="task-title" placeholder="Titre de la tâche" />
+          <textarea id="task-desc" placeholder="Description"></textarea>
+          <div class="form-row">
+            <input type="date" id="task-date" />
+            <input type="time" id="task-start" />
+            <input
+              type="number"
+              id="task-duration"
+              placeholder="Durée (min)"
+              min="15"
+            />
+          </div>
+          <div class="category-group">
+            <select
+              id="task-cat-select"
+              onchange="checkNewCategory(this.value)"
+            >
+              <option value="Général">Général</option>
+              <option value="NEW">+ Nouvelle catégorie...</option>
+            </select>
+            <input
+              type="text"
+              id="task-cat-new"
+              placeholder="Nom de la nouvelle catégorie"
+              style="display: none"
+            />
+          </div>
+          <button class="btn" onclick="saveTask()">Enregistrer la tâche</button>
+        </div>
+        <div id="list-container"></div>
+      </div>
+
+      <div id="calendar-view" class="view">
+        <div class="calendar-header">
+          <h1>Planning du jour</h1>
+          <input type="date" id="calendar-date-picker" onchange="renderAll()" />
+        </div>
+        <div class="calendar-container" id="calendar-grid"></div>
+      </div>
+    </main>
+
+    <div id="focus-overlay">
+      <div id="focus-curtain"></div>
+      <div id="focus-handle"><span>⟷</span></div>
+      <div id="focus-content">
+        <h2 id="focus-task-title">Tâche en cours</h2>
+        <div id="timer-display">00:00</div>
+        <button
+          class="btn"
+          onclick="closeFocus()"
+          style="z-index: 1001; position: relative"
+        >
+          Quitter le Focus
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

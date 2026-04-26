@@ -1,0 +1,19 @@
+{
+    "scenario": [
+        "Affichage d'une liste de tâches",
+        "Création d'une nouvelle tâche avec [date, heure de début, durée, catégorie à choisir parmi liste ou à créer si inexistante]",
+        "Visualiser la tâche dans le calendrier (vue journalière)",
+        "Modifier la durée de la tâche"
+    ],
+    "tache": {
+        "date": "26 mars 2026",
+        "Heure de début": "10h",
+        "durée": "2 heures",
+        "catégorie de la tâche à choisir": "Cours",
+        "catégorie disponibles": ["Travail", "Personnel"]
+    },
+
+    "edition": {
+        "durée" : "4 heures"
+    }
+}
