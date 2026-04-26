@@ -129,6 +129,7 @@ function saveTask() {
   }
 
   resetForm();
+  document.getElementById("calendar-date-picker").value = date;
   saveAndRender();
 }
 
@@ -190,6 +191,8 @@ function renderCalendar() {
   const dayTasks = tasks.filter(
     (t) => t.date === selectedDate && (filter === "all" || t.category === filter)
   );
+
+  console.log(`[Calendrier] selectedDate: ${selectedDate}, Tâches du jour: ${dayTasks.length}, Titres: ${dayTasks.map(t=>t.title).join(', ')}`);
 
   // 1. Calcul de la position verticale de chaque tâche (début/fin en minutes)
   const taskMeta = dayTasks.map((task) => {
